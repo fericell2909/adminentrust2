@@ -36,12 +36,16 @@ Route::group(['middleware' => 'auth'], function () {
 
 	Route::get('PersonaNatural/Editar/{id}', ['as' =>'PersonaNatural/Crud', 'uses' => 'PersonaController@EditarPersonaNatural']);
 
+	Route::post('PersonaNatural/Editar', ['as' =>'PersonaNatural/Editar', 'uses' => 'PersonaController@EditarGuardarPersonaNatural']);
+
+	// Fin de Persona Natural.
+
 });
 
 
 	
 
-// Fin de Persona Natural.
+
 
 
 

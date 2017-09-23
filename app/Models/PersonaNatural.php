@@ -142,7 +142,13 @@ class PersonaNatural extends Model
 									   "personasnaturales.cPaginaContacto",
     								   "estados.nombre_estado",
     								   "personasnaturales.persona_id",
-    								   "personasnaturales.dni"	   
+    								   "personasnaturales.dni",
+                                       "personasnaturales.sexo_id",
+                                       "personasnaturales.estado_civil_id",
+                                       "personasnaturales.departamento_id",
+                                       "personasnaturales.provincia_id",
+                                       "personasnaturales.distrtio_id",
+                                       "personas.estado_id"	   
     								  )
     						    ->join("personas","personas.id","=","personasnaturales.persona_id")
     						    ->join("estados","estados.id","=","personas.estado_id")
@@ -153,5 +159,57 @@ class PersonaNatural extends Model
     						    ->join("estadosciviles","estadosciviles.id","=","personasnaturales.estado_civil_id")
     						    ->where("personasnaturales.id",$id)
     						    ->get();
+    }
+
+    public static function EditarPersonaNatural($data)
+    {
+        try {
+            
+            DB::beginTransaction();
+
+            // Actualizar Persona Estado.
+
+            $persona = array('estado_id'=>$data['estado_id']);
+
+            Persona::where('id',$data['persona_id'])
+                      ->update($persona);
+
+
+            // Actualizando Persona Natural.
+
+            $personanatural = array('Nombres'=>$data['Nombres'],
+                                    'cApellidoPaterno'=>$data['cApellidoPaterno'],
+                                    'cApellidoMaterno'=>$data['cApellidoMaterno'],
+                                    'sexo_id'=>$data['sexo_id'],
+                                    'estado_civil_id'=>$data['estado_civil_id'],
+                                    'dni'=>$data['dni'],
+                                    'cTelefonoFijo'=>$data['cTelefonoFijo'],
+                                    'cCelular'=>$data['cCelular'],
+                                    'cCorreoElectronico'=>$data['cCorreoElectronico'],
+                                    'departamento_id'=>$data['departamento_id'],
+                                    'provincia_id'=>$data['provincia_id'],
+                                    'distrtio_id'=>$data['distrito_id'],
+                                    'cDireccionNegocio'=>$data['cDireccionNegocio'],
+                                    'cPaginaContacto'=>$data['cPaginaContacto'],
+                                    'nLatitudNegocio'=>$data['nLatitudNegocio'],
+                                    'nLongitudNegocio'=>$data['nLongitudNegocio']
+                                    );
+
+            PersonaNatural::where('id',$data['id'])
+                            ->update($personanatural);
+
+            DB::commit();
+
+            $persona = null;
+            $personanatural = null;
+            
+            return true;
+
+        } catch (Exception $e) {
+
+            DB::rollback();
+            return false;
+
+        }
     }
 }	
