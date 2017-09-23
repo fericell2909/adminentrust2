@@ -104,4 +104,54 @@ class PersonaNatural extends Model
 
     	 }
     }
+
+    public static function Listar()
+    {
+
+    	return PersonaNatural::select("personasnaturales.id",
+    								   "personasnaturales.dni",
+    								   "personasnaturales.cCorreoElectronico",
+    								   "personasnaturales.cApellidoPaterno",
+    								   "personasnaturales.cApellidoMaterno",
+    								   "personasnaturales.Nombres",
+    								   "estados.nombre_estado",
+    								   "personasnaturales.persona_id")
+    						    ->join("personas","personas.id","=","personasnaturales.persona_id")
+    						    ->join("estados","estados.id","=","personas.estado_id")
+	                            ->orderBy('personasnaturales.id','DESC')
+	                            ->paginate(4); 
+    }
+
+    public static function Listar_Persona_Natural($id)
+    {
+    	return PersonaNatural::select("personasnaturales.id",
+    								   "personasnaturales.Nombres",
+    								   "personasnaturales.cApellidoPaterno",
+    								   "personasnaturales.cApellidoMaterno",
+    								   "personasnaturales.cCorreoElectronico",
+    								   "personasnaturales.cCelular",
+    								   "personasnaturales.cTelefonoFijo",
+    								   "sexos.nombre_sexo",
+    								   "estadosciviles.nombre_estado_civil",
+    								   "z1.cNomZona as nombre_departamento",
+    								   "z2.cNomZona as nombre_provincia",
+    								   "z3.cNomZona as nombre_distrito",
+    								   "personasnaturales.cDireccionNegocio",
+									   "personasnaturales.nLatitudNegocio",
+									   "personasnaturales.nLongitudNegocio",
+									   "personasnaturales.cPaginaContacto",
+    								   "estados.nombre_estado",
+    								   "personasnaturales.persona_id",
+    								   "personasnaturales.dni"	   
+    								  )
+    						    ->join("personas","personas.id","=","personasnaturales.persona_id")
+    						    ->join("estados","estados.id","=","personas.estado_id")
+    						    ->join("zonas as z1","z1.id","=","personasnaturales.departamento_id")
+    						    ->join("zonas as z2","z2.id","=","personasnaturales.provincia_id")
+    						    ->join("zonas as z3","z3.id","=","personasnaturales.distrtio_id")
+    						    ->join("sexos","sexos.id","=","personasnaturales.sexo_id")
+    						    ->join("estadosciviles","estadosciviles.id","=","personasnaturales.estado_civil_id")
+    						    ->where("personasnaturales.id",$id)
+    						    ->get();
+    }
 }	

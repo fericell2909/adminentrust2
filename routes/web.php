@@ -16,25 +16,32 @@ Route::get('/', function () {
 });
 
 Route::group(['middleware' => 'auth'], function () {
-    //    Route::get('/link1', function ()    {
-//        // Uses Auth Middleware
-//    });
+	// Ruta para Acceder al Registro de Persona Natural
+	Route::get('admin/PersonaNatural', ['as' =>'admin/PersonaNatural', 'uses' => 'PersonaController@RegistrarPersonaNatural']);
 
-    //Please do not remove this if you want adminlte:route and adminlte:link commands to works correctly.
-    #adminlte_routes
+	// Ruta para Guardar Registro de Persona Natural
+	Route::post('admin/PersonaNatural', ['as' =>'admin/PersonaNatural', 'uses' => 'PersonaController@GuardarPersonaNatural']);
+
+	// Rutas Llamadas Ajax de Zonas.
+	Route::post('Zona/Listar_Provincias_x_Departamento/{id}',['as' => 'Zona/Listar_Provincias_x_Departamento', 'uses' => 'ZonaController@Listar_Provincias_x_Departamento']);
+
+	Route::post('Zona/Listar_Distritos_x_Provincia/{id}',['as' => 'Zona/Listar_Distritos_x_Provincia', 'uses' => 'ZonaController@Listar_Distritos_x_Provincia']);
 
 
-    
+	// Ruta para Listar Persona Natural.
+
+	Route::get('PersonaNatural/Crud', ['as' =>'PersonaNatural/Crud', 'uses' => 'PersonaController@Crud']);
+
+	Route::get('PersonaNatural/Ver/{id}', ['as' =>'PersonaNatural/Crud', 'uses' => 'PersonaController@VerPersonaNatural']);
+
+	Route::get('PersonaNatural/Editar/{id}', ['as' =>'PersonaNatural/Crud', 'uses' => 'PersonaController@EditarPersonaNatural']);
+
 });
 
-// Ruta para Acceder al Registro de Persona Natural
-Route::get('admin/PersonaNatural', ['as' =>'admin/PersonaNatural', 'uses' => 'PersonaController@RegistrarPersonaNatural']);
 
-// Ruta para Guardar Registro de Persona Natural
-Route::post('admin/PersonaNatural', ['as' =>'admin/PersonaNatural', 'uses' => 'PersonaController@GuardarPersonaNatural']);
+	
 
-// Rutas Llamadas Ajax de Zonas.
-Route::post('Zona/Listar_Provincias_x_Departamento/{id}',['as' => 'Zona/Listar_Provincias_x_Departamento', 'uses' => 'ZonaController@Listar_Provincias_x_Departamento']);
+// Fin de Persona Natural.
 
-Route::post('Zona/Listar_Distritos_x_Provincia/{id}',['as' => 'Zona/Listar_Distritos_x_Provincia', 'uses' => 'ZonaController@Listar_Distritos_x_Provincia']);
+
 

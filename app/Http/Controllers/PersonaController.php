@@ -11,6 +11,7 @@ use App\Models\PersonaNatural;
 
 class PersonaController extends Controller
 {
+
     public function RegistrarPersonaNatural()
     {
     	$sexos = Sexo::Listar_Sexo();
@@ -22,10 +23,11 @@ class PersonaController extends Controller
     }
     public function GuardarPersonaNatural(Request $request)
     {
-        $data =$request->all();
 
+        $data =$request->all();
         //$bresultado = PersonaNatural::GuardarPersonaNatural($data);
-        // uso de Transacciones.
+        // uso de Transacciones de Ejemplo..
+        
         $bresultado = PersonaNatural::GuardarPersonaNatural2($data);
 
         if ($bresultado) {
@@ -39,5 +41,35 @@ class PersonaController extends Controller
 
         }
         
+    }
+    public function crud(request $request )
+    {
+
+        // Listar Todas las Personas Naturales...
+
+        if ($request->ajax()) {
+            $personasnataurales = PersonaNatural::Listar();
+            return view('adminlte::persona.personanaturaltable',compact('personasnataurales'));    
+        } else {
+           $personasnataurales = PersonaNatural::Listar();
+            //$personasnataurales = null;
+            return view('adminlte::persona.personacrud',compact('personasnataurales'));
+        }
+    }
+
+    public function VerPersonaNatural($id)
+    {
+        //$id : codigo de persona natural.
+        //echo $id;
+        $personasnataurales = PersonaNatural::Listar_Persona_Natural($id);
+
+        //dd($personasnataurales);
+        
+        return view('adminlte::persona.verpersonanatural',compact('personasnataurales'));
+    }
+
+    public function EditarPersonaNatural($id)
+    {
+        //...
     }
 }
