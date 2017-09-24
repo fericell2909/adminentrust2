@@ -40,12 +40,17 @@ Route::group(['middleware' => 'auth'], function () {
 
 	// Fin de Persona Natural.
 
+	// BootGrid
+
+	Route::get('PersonaNatural/CrudBootGrid', ['as' =>'PersonaNatural/Crud', 'uses' => 'PersonaController@CrudBootGrid']);
+
+	Route::post('PersonaNatural/BootGrid', ['as' =>'PersonaNatural/BootGrid', 'uses' => 'PersonaController@BootGrid']);
+
+	Route::get('PersonaNatural/EditarBootGrid/{id}', ['as' =>'PersonaNatural/Crud', 'uses' => 'PersonaController@EditarBootGridPersonaNatural']);
+
+	Route::post('PersonaNatural/EditarBootGrid', ['as' =>'PersonaNatural/Editar', 'uses' => 'PersonaController@EditarBootGridGuardarPersonaNatural']);
+
+	// Fin BootGrid
+
+
 });
-
-
-	
-
-
-
-
-
