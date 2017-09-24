@@ -293,7 +293,7 @@ class PersonaNatural extends Model
 
         $output = array(
          'current'  => intval($datos["current"]),
-         'rowCount'  => 10,
+         'rowCount'  => $records_per_page,
          'total'   => intval($total_records),
          'rows'   => $results
         );
