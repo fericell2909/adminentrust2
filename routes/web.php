@@ -53,4 +53,19 @@ Route::group(['middleware' => 'auth'], function () {
 	// Fin BootGrid
 
 
+	// Persona Juridicas
+	// Mostar el Listado : GET
+	Route::get('PersonaJuridica/Crud', ['as' =>'PersonaJuridica/Crud', 'uses' => 'PersonaController@CrudJuridica']);
+
+	// Traer los Datos.
+	Route::post('PersonaJuridica/Listar', ['as' =>'PersonaJuridica/Listar', 'uses' => 'PersonaController@ListarPersonasJuridicas']);
+
+	//Ver
+	Route::get('PersonaJuridica/Ver/{id}', ['as' =>'PersonaJuridica/Ver', 'uses' => 'PersonaController@EditarPersonaJuridica']);
+
+	//Editar
+	Route::get('PersonaJuridica/Editar/{id}', ['as' =>'PersonaJuridica/Editar', 'uses' => 'PersonaController@EditarPersonaJuridica']);
+
+
+
 });

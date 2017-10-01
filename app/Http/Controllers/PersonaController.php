@@ -9,6 +9,7 @@ use App\Models\EstadoCivil;
 use App\Models\Zona;
 use App\Models\PersonaNatural;
 use App\Models\Estado;
+use App\Models\PersonaJuridica;
 
 class PersonaController extends Controller
 {
@@ -58,6 +59,11 @@ class PersonaController extends Controller
         }
     }
 
+    public function CrudJuridica()
+    {
+        return view('adminlte::persona.personajuridica');        
+    }
+
     public function CrudBootGrid()
     {
 
@@ -69,12 +75,25 @@ class PersonaController extends Controller
     {
 
         $datos = $request->all();
-
         return PersonaNatural::ListarBootGrid($datos);
         //dd($datos);
        
 
     }
+
+
+    public function ListarPersonasJuridicas(Request $request)
+    {
+
+        $datos = $request->all();
+
+        //return PersonaNatural::ListarBootGrid($datos);
+        //dd($datos);
+
+        return PersonaJuridica::ListarPersonaJuridica($datos);
+       
+    }
+
 
     public function VerPersonaNatural($id)
     {
