@@ -52,10 +52,9 @@ class PersonaJuridica extends Model
         if(!empty($_POST["searchPhrase"]))
         {
          $query .= ' WHERE (personasjuridicas.id LIKE "%'.$_POST["searchPhrase"].'%" ';
-         $query .= 'OR personasjuridicas.dni LIKE "%'.$_POST["searchPhrase"].'%" ';
-         $query .= 'OR personasjuridicas.cCorreoElectronico LIKE "%'.$_POST["searchPhrase"].'%" ';
-         $query .= 'OR estados.nombre_estado LIKE "%'.$_POST["searchPhrase"].'%" ';
-         $query .= 'OR personasjuridicas.Nombres LIKE "%'.$_POST["searchPhrase"].'%" ) ';
+         $query .= 'OR personasjuridicas.Ruc LIKE "%'.$_POST["searchPhrase"].'%" ';
+         $query .= 'OR personasjuridicas.RazonSocial LIKE "%'.$_POST["searchPhrase"].'%" ';
+         $query .= 'OR estados.nombre_estado LIKE "%'.$_POST["searchPhrase"].'%" )';
         }
 
         $order_by = '';
