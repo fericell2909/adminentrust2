@@ -66,6 +66,13 @@ Route::group(['middleware' => 'auth'], function () {
 	//Editar
 	Route::get('PersonaJuridica/Editar/{id}', ['as' =>'PersonaJuridica/Editar', 'uses' => 'PersonaController@EditarPersonaJuridica']);
 
+	// Registro de Facturas
+
+	Route::get('Venta/Factura', ['as' =>'Venta/Factura', 'uses' => 'VentaController@RegistrarFactura']);
+
+	Route::post('Venta/Factura', ['as' =>'Venta/Factura', 'uses' => 'VentaController@GuardarFactura']);
+
+
 
 
 });

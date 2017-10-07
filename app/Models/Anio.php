@@ -11,7 +11,7 @@ class Anio extends Model
 
     public static function Listar_Anios()
     {
-    	return Anio::select("anios.id as id","anios.nombre_anio as nombre_anio")
+    	return Anio::select("anios.id as id","anios.numero_anio as numero_anio")
             			->get();
     }
 }

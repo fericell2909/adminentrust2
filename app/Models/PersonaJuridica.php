@@ -11,6 +11,18 @@ class PersonaJuridica extends Model
     protected $table='personasjuridicas';
     public $primaryKey ='id';
 
+    public static function ListarPersonasJuridicasAll()
+    {
+
+        return PersonaJuridica::select("personasjuridicas.persona_id",
+                                       "personasjuridicas.RazonSocial")
+                                ->join("personas","personas.id","=","personasjuridicas.persona_id")
+                                ->join("estados","estados.id","=","personas.estado_id")
+                                ->where("personas.estado_id",1)
+                                ->get();
+    }
+
+
       public static function ListarPersonaJuridica($datos)
     {
 
