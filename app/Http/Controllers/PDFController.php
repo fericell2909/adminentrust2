@@ -21,7 +21,7 @@ class PDFController extends Controller
     public function crear_reporte_usuarios($tipo)
     {
     	$vistaurl="adminlte::reporte.reporte_usuarios";
-     $usuarios=User::all();
+        $usuarios=User::all();
      
      return $this->CrearUsuarioPDF($usuarios, $vistaurl,$tipo);
 
