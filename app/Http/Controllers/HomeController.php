@@ -35,4 +35,8 @@ class HomeController extends Controller
     {
         return view('adminlte::home');
     }
+    public function perfil()
+    {
+     return view('adminlte::perfil.perfil');   
+    }
 }

@@ -75,9 +75,14 @@ Route::group(['middleware' => 'auth'], function () {
 
 	Route::get('Reportes', ['as' =>'Reportes', 'uses' => 'PDFController@reportes']);
 
+
+
 	Route::get('reporte_usuarios/{tipo}', 'PDFController@crear_reporte_usuarios');
 
 	Route::get('listado_graficas',['as' =>'listado_graficas','uses' =>  'GraficasController@index']);
 	Route::get('grafica_registros/{anio}/{mes}',['as' =>'grafica_registros' ,'uses' => 'GraficasController@registros_mes']);
+
+
+	Route::get('perfil', ['as' =>'perfil', 'uses' => 'HomeController@perfil']);
 
 });
