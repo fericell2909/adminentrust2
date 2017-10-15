@@ -1,14 +1,12 @@
 
 function cambiar_fecha_grafica(){
 
-    var anio_sel=$("#anio_sel").val();
+    var anio_sel=$("#anio_sel option:selected").text();
     var mes_sel=$("#mes_sel").val();
 
     cargar_grafica_barras(anio_sel,mes_sel);
     cargar_grafica_lineas(anio_sel,mes_sel);
 }
-
-
 
 function cargar_grafica_barras(anio,mes){
 
@@ -21,7 +19,7 @@ var options={
             text: 'Numero de Registros en el Mes'
         },
         subtitle: {
-            text: 'Source: plusis.net'
+            text: ''
         },
         xAxis: {
             categories: [],
@@ -98,7 +96,7 @@ var options={
             x: -20 //center
         },
         subtitle: {
-            text: 'Source: Plusis.net',
+            text: '',
             x: -20
         },
         xAxis: {
@@ -147,10 +145,6 @@ var i=0;
  chart = new Highcharts.Chart(options);
 
 })
-
-
-}
-
 
 
 }

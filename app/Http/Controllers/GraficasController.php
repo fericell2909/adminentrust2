@@ -23,6 +23,8 @@ class GraficasController extends Controller
         $fecha_inicial=date("Y-m-d H:i:s", strtotime($anio."-".$mes."-".$primer_dia) );
         $fecha_final=date("Y-m-d H:i:s", strtotime($anio."-".$mes."-".$ultimo_dia) );
         $usuarios=User::whereBetween('created_at', [$fecha_inicial,  $fecha_final])->get();
+
+   
         $ct=count($usuarios);
         for($d=1;$d<=$ultimo_dia;$d++){
             $registros[$d]=0;     
