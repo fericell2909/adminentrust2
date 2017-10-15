@@ -54,6 +54,18 @@
             </li>
             <li class="treeview">
                   <a href="#">
+                    <i class="fa fa-fw fa-database"></i> <span>Seguridad</span> <i class="fa fa-angle-left pull-right"></i>
+                  </a>
+              <ul class="treeview-menu">
+                <li class="active"><a href="{{url('admin/users')}}" ><i class="fa fa-address-book-o"></i> Usuarios </a></li>
+                 <li class="active"><a href="{{url('admin/roles')}}" ><i class="fa fa-pencil-square-o"></i> Roles </a></li>
+                 <li class="active"><a href="{{url('admin/permissions')}}" ><i class="fa fa-check"></i> Permisos </a></li>
+                
+                
+              </ul>
+            </li>
+            <li class="treeview">
+                  <a href="#">
                     <i class="fa fa-fw fa-database"></i> <span>Reportes</span> <i class="fa fa-angle-left pull-right"></i>
                   </a>
               <ul class="treeview-menu">
