@@ -38,7 +38,7 @@ return [
     |
     */
 
-    'debug' => env('APP_DEBUG', false),
+    'debug' => env('APP_DEBUG', true),
 
     /*
     |--------------------------------------------------------------------------
@@ -178,6 +178,8 @@ return [
         App\Providers\RouteServiceProvider::class,
         Acacha\AdminLTETemplateLaravel\Providers\AdminLTETemplateServiceProvider::class,
         Acoustep\EntrustGui\EntrustGuiServiceProvider::class,
+        Barryvdh\DomPDF\ServiceProvider::class,
+        
     ],
 
     /*
@@ -228,7 +230,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'AdminLTE' => Acacha\AdminLTETemplateLaravel\Facades\AdminLTE::class, 
         'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
-
+        'PDF' => Barryvdh\DomPDF\Facade::class,
     ],
 
 ];

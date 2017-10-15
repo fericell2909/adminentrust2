@@ -21,41 +21,41 @@
         <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
                 <!-- Messages: style can be found in dropdown.less-->
-                <li class="dropdown messages-menu">
-                    <!-- Menu toggle button -->
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+               {{--  <li class="dropdown messages-menu">
+                    <! Menu toggle button >
+                   {{  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="fa fa-envelope-o"></i>
                         <span class="label label-success">4</span>
-                    </a>
-                    <ul class="dropdown-menu">
+                    </a> --}}
+                    {{-- <ul class="dropdown-menu">
                         <li class="header">{{ trans('adminlte_lang::message.tabmessages') }}</li>
                         <li>
-                            <!-- inner menu: contains the messages -->
+                            <! inner menu: contains the messages >
                             <ul class="menu">
-                                <li><!-- start message -->
+                                <li> start message >
                                     <a href="#">
                                         <div class="pull-left">
-                                            <!-- User Image -->
-                                            {{-- <img src="{{ Gravatar::get($user->email) }}" class="img-circle" alt="User Image"/> --}}
+                                            <! User Image >
+                                            <img src="{{ Gravatar::get($user->email) }}" class="img-circle" alt="User Image"/>
                                              <img src="/img/avatar.png" class="img-circle" alt="Imagen" />
                                         </div>
-                                        <!-- Message title and timestamp -->
+                                        <! Message title and timestamp >
                                         <h4>
                                             {{ trans('adminlte_lang::message.supteam') }}
                                             <small><i class="fa fa-clock-o"></i> 5 mins</small>
                                         </h4>
-                                        <!-- The message -->
+                                        <! The message >
                                         <p>{{ trans('adminlte_lang::message.awesometheme') }}</p>
                                     </a>
-                                </li><!-- end message -->
-                            </ul><!-- /.menu -->
+                                </li><! end message >
+                            </ul><! /.menu >
                         </li>
                         <li class="footer"><a href="#">c</a></li>
-                    </ul>
-                </li><!-- /.messages-menu -->
-
+                    </ul> --}}
+                {{-- </li> --}} 
+ 
                 <!-- Notifications Menu -->
-                <li class="dropdown notifications-menu">
+                {{-- <li class="dropdown notifications-menu">
                     <!-- Menu toggle button -->
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="fa fa-bell-o"></i>
@@ -75,9 +75,9 @@
                         </li>
                         <li class="footer"><a href="#">{{ trans('adminlte_lang::message.viewall') }}</a></li>
                     </ul>
-                </li>
+                </li> --}}
                 <!-- Tasks Menu -->
-                <li class="dropdown tasks-menu">
+               {{--  <li class="dropdown tasks-menu">
                     <!-- Menu Toggle Button -->
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="fa fa-flag-o"></i>
@@ -110,7 +110,7 @@
                             <a href="#">{{ trans('adminlte_lang::message.alltasks') }}</a>
                         </li>
                     </ul>
-                </li>
+                </li> --}}
                 @if (Auth::guest())
                     <li><a href="{{ url('/register') }}">{{ trans('adminlte_lang::message.register') }}</a></li>
                     <li><a href="{{ url('/login') }}">{{ trans('adminlte_lang::message.login') }}</a></li>
@@ -171,9 +171,9 @@
                 @endif
 
                 <!-- Control Sidebar Toggle Button -->
-                <li>
+                {{-- <li>
                     <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-                </li>
+                </li> --}}
             </ul>
         </div>
     </nav>
