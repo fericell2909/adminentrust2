@@ -14,6 +14,7 @@ class PDFController extends Controller
 {
       public function reportes()
     {
+        // Funcion para reportes.
     	$reportes = Reporte::Listado_Reportes_X_Rol(Auth::user()->id);
         return view("adminlte::reporte.reporte",compact('reportes'));
     }
