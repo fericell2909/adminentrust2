@@ -25,11 +25,6 @@
 		{
     		border-color: #00a65a;
 		}
-	.btn-primary 
-		{
-    		background-color: #00a65a;
-    		border-color: #00a65a;
-		}
 
 </style>
 @endsection
@@ -106,7 +101,7 @@
 @endsection
 
 @section('script-fin')
-<script type="text/javascript" src="/js/highcharts.js"></script>
-<script type="text/javascript" src="/js/graficas.js"></script>
+	<script type="text/javascript" src="/js/highcharts.js"></script>
+	<script type="text/javascript" src="/js/graficas.js"></script>
 
 @endsection
